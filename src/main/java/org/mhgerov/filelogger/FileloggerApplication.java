@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FileloggerApplication {
+public class FileLoggerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileloggerApplication.class, args);
+		SpringApplication.run(FileLoggerApplication.class, args);
 	}
 }
