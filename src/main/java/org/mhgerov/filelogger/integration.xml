@@ -13,23 +13,17 @@
 		http://www.springframework.org/schema/integration/http
 		http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
 		">
-	<int:gateway
-		service-interface="org.mhgerov.filelogger.FileLoggerRestGateway"
-		id="httpGateway">
+		
+	<int:gateway service-interface="org.mhgerov.filelogger.FileLoggerRestGateway">
 		<int:method name="logMessage" request-channel="loggerChannel"/>
+		<int:method name="backupLog" />
 	</int:gateway>
 
 	<int:channel id="loggerChannel"/>	
-	<!--  
-	<int-file:outbound-gateway id="fileWriter"
-		request-channel="loggerChannel" append-new-line="true"
-		auto-create-directory="true" directory="logs"
-		filename-generator-expression='"main.log"' mode="APPEND"/>
-		-->
-	<int-file:outbound-channel-adapter auto-create-directory="true"
-		append-new-line="true" directory="logs"
-		filename-generator-expression='"main.log"' channel="loggerChannel"
-		mode="APPEND" />
 
+	<int-file:outbound-channel-adapter auto-create-directory="true"
+		append-new-line="true" directory="${filelogger.directory}"
+		filename-generator-expression='"${filelogger.filename}"' channel="loggerChannel"
+		mode="APPEND" />
 
 </beans>
