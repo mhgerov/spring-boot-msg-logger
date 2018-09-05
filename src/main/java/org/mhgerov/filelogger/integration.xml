@@ -30,4 +30,5 @@
 		filename-generator-expression='"main.log"'
 		mode="APPEND"
 	/>
+
 </beans>
