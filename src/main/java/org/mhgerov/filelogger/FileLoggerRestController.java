@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FileLoggerRestController {
 
 	@Autowired
-	FileLoggerHttpInterface fileLoggerHttpInterface;
+	private FileLoggerRestGateway fileLoggerHttpInterface;
 
 	@PostMapping("/api/logger")
 	public void logMessage(@RequestBody final String msg) {
